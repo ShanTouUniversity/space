@@ -1,0 +1,35 @@
+---
+const platform = "github";
+const org = "ShanTouUniversity";
+const dever = "ShanTou-U"
+---
+
+<footer class="footer">
+  <div class="footer-content">
+    <p>
+      Made with <span class="heart">&hearts;</span> by
+      <a href={`https://www.${platform}.com/${dever}`}>{dever}</a>
+    </p>
+    <p>
+      Part of <a href={`https://www.${platform}.com/${org}`}>{org}</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-content {
+    text-align: center;
+  }
+
+  .heart {
+    font-size: 1.5rem;
+    color: #ff69b4;
+  }
+</style>
