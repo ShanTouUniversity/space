@@ -1,25 +1,11 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-import "../styles/global.css";
+const pageTitle = "博客";
 ---
 
 
-<head lang="zh-cn">
-    <head>
-        <meta charset="utf-8" />
-    </head>
-
-    <body>
-
-        <Header/>
-        
-        <h1>Blog 页面</h1>
-        - <a href="/posts/hello">Hello</a><br>
-        - <a href="/posts/start">梦想开始的地方</a>
-
-        <Footer /> 
-    </body>
-    
-</head>
+<BaseLayout pageTitle={pageTitle}>
+    - <a href="/posts/hello">Hello</a><br>
+    - <a href="/posts/start">梦想开始的地方</a>
+</BaseLayout>

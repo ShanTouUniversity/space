@@ -1,27 +1,11 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-import "../styles/global.css";
-
+const pageTitle = "ST.U 试验田";
 ---
 
-<html lang="zh-cn">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type ="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content = {Astro.generator} >
-    <title>ST.U 的试验田</title>
-  </head>
-  <body>
-	<Header/>
-    <h1>ST.U 的试验田</h1>
 
-  <Footer/>
-  <script>
-    import "../scripts/menu.js"
-  </script>
-</body>
-  </body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+  <p>ST.U 试验田是一个非营利组织，它的宗旨是用科技创造价值。</p> 
+  <p>你所看到的大部分内容为 AI 生成!（这句话除外）</p>
+</BaseLayout>

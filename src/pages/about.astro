@@ -1,57 +1,15 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-import "../styles/global.css";
-
-
-const pageTitle:string = "关于 ST.U 的试验田"
-
-const finished:boolean = false
-
-const cities: string[] = [
-    "汕头",
-    "广州",
-    "徐州",
-    "上海",
-    "苏州",
-    "南京",
-    "杭州"
-]
-
-let mainColor: string = "#ac7d51"
-let cityColor: string = "navy"
-let fontWeight: string = "bold"
+const pageTitle = "关于";
 ---
 
-
-<html lang="zh-cn">
-
-<head>
-    <meta charset="utf-8" />
-    <title> {pageTitle} </title>
-</head>
-
-<body>
-
-    <Header/>
-
-
-    <h1>{pageTitle}</h1>
+<BaseLayout pageTitle={pageTitle}>
     <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima quidem, dolores sint sed tempora numquam doloremque aliquam excepturi cum omnis nemo assumenda asperiores? Aliquam esse incidunt dignissimos maiores facilis molestias.
     </p>
 
-    <ul>
-    我的足迹遍布: {
-        cities.map(
-            (city) => <li class="city"> {city}</li>
-        )
-    }
-    </ul>
-
-    {finished && <p>我已经完成了</p>}
-
-    <Footer/>
-</body>
-</html> 
+    <p>
+        <em>ST.U</em> 是一个非营利社区，社区的所有资产均托管在 GitHub 上，所有的活动也通过 GitHub 进行。
+    </p>
+</BaseLayout>

@@ -1,0 +1,50 @@
+---
+const { frontmatter } = Astro.props;
+---
+
+<!-- <h1>{frontmatter.title}</h1>
+<p>Written by {frontmatter.author}</p> -->
+
+
+<div class="metadata card">
+  <h2>{frontmatter.title}</h2>
+  <p class="date">{new Date(frontmatter.pubDate).toLocaleDateString()}</p>
+  <p class="author">{frontmatter.author}</p>
+  <p class="tags">
+    Tags:
+    {frontmatter.tags ? frontmatter.tags.map((tag: string) => <span class="tag">{tag}</span>).join(', ') : 'None'}
+  </p>
+  <style>
+    body {
+        background-color: #C0D6DF;
+    }
+    .metadata {
+      background-color: #ac7d51;
+      padding: 1em;
+      border-radius: 0.5em;
+      box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.2);
+    }
+    .metadata h2 {
+      margin: 0;
+      font-weight: bold;
+    }
+    .metadata .date {
+      font-size: 0.8em;
+      margin-bottom: 0.5em;
+    }
+    .metadata .author {
+      font-size: 0.8em;
+      margin-bottom: 0.5em;
+    }
+    .metadata .tags {
+      font-size: 0.8em;
+    }
+    .metadata .tags .tag {
+      background-color: #fff;
+      border-radius: 0.2em;
+      padding: 0.2em;
+      margin-right: 0.2em;
+    }
+  </style>
+</div>
+<slot />

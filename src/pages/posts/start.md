@@ -1,4 +1,5 @@
 ---
+layout: "../../layouts/MarkdownLayout.astro"
 title: '梦想开始的地方'
 pubDate: 2024-09-13
 description: '也是梦想结束的地方。'
@@ -8,8 +9,5 @@ image:
     alt: 'The Astro logo on a dark background with a pink glow.'
 tags: ["astro", "blogging", "learning in public"]
 ---
-
-
-# Hello World
 
 This is a demo page from Astro.
