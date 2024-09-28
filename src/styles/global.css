@@ -1,5 +1,19 @@
+:root {
+  --primary-100:#8B5D33;
+  --primary-200:#be8a5e;
+  --primary-300:#ffedbc;
+  --accent-100:#BFBFBF;
+  --accent-200:#616161;
+  --text-100:#333333;
+  --text-200:#5c5c5c;
+  --bg-100:#E5E5E5;
+  --bg-200:#dbdbdb;
+  --bg-300:#b3b3b3;
+}
+
+
 html {
-  background-color: #C0D6DF;
+  background-color: var(--bg-100);
   font-family: sans-serif;
 }
 
@@ -16,7 +30,7 @@ body {
 }
 
 h1 {
-  color: #ac7d51;
+  color: var(--primary-100);
   margin: 1rem 0;
   font-size: 2.5rem;
 }
@@ -34,14 +48,14 @@ h1 {
   width: 40px;
   height: 5px;
   margin-bottom: 10px;
-  background-color: #ac7d51;
+  background-color: var(--primary-100);
 }
 
 .nav-links {
   width: 100%;
   top: 5rem;
   left: 48px;
-  background-color: #ac7d51;
+  background-color: var(--primary-100);
   display: none;
   margin: 0;
 }
@@ -58,7 +72,7 @@ h1 {
 
 .nav-links a:hover,
 .nav-links a:focus {
-  background-color: #ac7d51;
+  background-color: var(--primary-200);
 }
 
 .expanded {

@@ -1,0 +1,39 @@
+:root {
+    --card-bg-color: #f9f9f9; /* 略微深一点的浅灰色 */
+    --title-color: #3D4C5F;
+    --tag-color: #97d6a6;
+    --text-color: #333333;
+}
+
+.metadata {
+    background-color: var(--card-bg-color);
+    padding: 0.5em;
+    border-radius: 0.5em;
+    /* box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.2); */
+}
+
+.metadata h2 {
+    margin: 0;
+    font-weight: bold;
+}
+
+.metadata .date {
+    font-size: 0.8em;
+    margin-bottom: 0.5em;
+}
+
+.metadata .author {
+    font-size: 0.8em;
+    margin-bottom: 0.5em;
+}
+
+.metadata .tags {
+    font-size: 0.8em;
+}
+
+.metadata .tags .tag {
+    background-color: var(--tag-color);
+    border-radius: 0.2em;
+    padding: 0.2em;
+    margin-right: 0.2em;
+}
