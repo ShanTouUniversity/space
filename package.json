@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
+    "@astrojs/preact": "^3.5.3",
     "@astrojs/rss": "^4.0.7",
     "astro": "^4.15.4",
+    "preact": "^10.24.1",
     "typescript": "^5.6.2"
   },
   "packageManager": "yarn@1.22.22"
