@@ -1,0 +1,15 @@
+---
+import "../styles/blog_post.css";
+
+const { title, url, date: pubDate } = Astro.props;
+---
+
+
+<li class="post-list-item">
+    <a href={url} class="post-list-item-link">
+        <h2 class="post-list-item-title">{title}</h2>
+        <p class="post-list-item-date">Posted on {new Date(pubDate).toLocaleDateString()}</p>
+    </a>
+</li>
+
+
