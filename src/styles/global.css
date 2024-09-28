@@ -45,8 +45,8 @@ h1 {
 
 .hamburger .line {
   display: block;
-  width: 40px;
-  height: 5px;
+  width: auto;
+  height: 3px;
   margin-bottom: 10px;
   background-color: var(--primary-100);
 }
