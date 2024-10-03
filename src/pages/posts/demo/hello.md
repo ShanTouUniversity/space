@@ -1,7 +1,8 @@
 ---
-layout: "../../layouts/MarkdownLayout.astro"
+layout: "../../../layouts/MarkdownLayout.astro"
 title: '我的第一篇博客文章'
 pubDate: 2024-09-13
+upDate: 2024-10-03
 description: '我的第一篇博客文章'
 author: 'ST.U'
 image:

@@ -1,18 +1,17 @@
 ---
 
-layout: "../../layouts/MarkdownLayout.astro"
+layout: "../../../layouts/MarkdownLayout.astro"
 
 
-title: 第三篇文章
+title: 測試tags
 pubDate: 2022-01-01
-tags: ["tag1", "tag2"]
+upDate: 2024-10-03
+tags: ["test_tag1", "test_tag2"]
 author: "ST.U"
 
-
-description: "这是第三篇文章的描述。"
-
-
+description: "這是一篇測試文章，主要是測試tags"
 
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl vitae ultricies aliquam, nunc nisl ultricies nisl, eget ultricies nunc nisl euismod nisl.
+
