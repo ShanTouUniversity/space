@@ -1,0 +1,38 @@
+---
+import HetiBase from "./HetiBase.astro";
+
+interface Props {
+    title: string;
+    author: string;
+    dynasty: string;
+    note: string;
+    content: string;
+}
+
+const { title, author, dynasty, note, content } = Astro.props;
+---
+
+<HetiBase>
+  <br />
+  <div class="heti heti--ancient">
+    <h2>
+      {title}<span class="heti-meta heti-small"
+        >[{dynasty}]<abbr title={note}>{author}</abbr></span
+      >
+    </h2>
+    <p class="heti-verse heti-x-large">
+      {
+        content
+        .split(/，|。|？|！|\n/)
+        .map(item => (
+            <span class="heti-hang">
+            {item}
+            <br />
+            </span>
+        ))
+
+          
+      }
+    </p>
+  </div>
+</HetiBase>

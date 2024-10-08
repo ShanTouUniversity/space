@@ -1,0 +1,22 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+import MetaCard from "../components/MetaCard.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<head>
+  <link rel="stylesheet" href="//unpkg.com/heti/umd/heti.min.css">
+  <script is:inline src="//unpkg.com/heti/umd/heti-addon.min.js"></script>
+  <script is:inline>
+    const heti = new Heti('.heti');
+    heti.autoSpacing();
+  </script>
+</head>
+
+<BaseLayout pageTitle={frontmatter.title}>
+  <MetaCard frontmatter={frontmatter} />
+  <slot />
+</BaseLayout>
+

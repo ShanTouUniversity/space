@@ -6,7 +6,7 @@ pubDate: 2024-10-03
 upDate: 2024-10-03
 author: 'ST.U'
 description: '用 Cloudflare Pages 部署 Astro (yarn)'
-tags: ["yarn", "cloudflare", "pages", "astro"]
+tags: ["yarn", "cloudflare pages", "astro"]
 ---
 
 为了统一 ST.U 的管理， Space 依然托管在 Cloudflare Pages 上。
