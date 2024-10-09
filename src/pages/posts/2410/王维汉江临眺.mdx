@@ -1,0 +1,32 @@
+---
+layout: "../../../layouts/MarkdownLayout.astro"
+
+title: 汉江临眺
+pubDate: 2024-10-09
+upDate: 2024-10-09
+author: "王维"
+description: "王维汉江临眺。"
+tags: ["诗", "王维", "汉江临眺"]
+---
+
+import HetiAncient from "../../../components/Heti/HetiAncient.astro";
+import HetiAbbr from "../../../components/Heti/HetiAbbr.astro";
+import HetiHang from "../../../components/Heti/HetiHang.astro";
+import HetiMetaSmall from "../../../components/Heti/HetiMetaSmall.astro";
+import HetiXLarge from "../../../components/Heti/HetiXLarge.astro";
+
+<HetiAncient>
+    <h2>汉江临眺<HetiMetaSmall>[唐朝]<HetiAbbr title="王维（692年—761年），字摩诘，是盛唐山水田园派的著名诗人和画家，人称“诗佛”，其诗作以清新自然、禅意深邃著称。">王维</HetiAbbr></HetiMetaSmall></h2>
+    <HetiXLarge>
+        {/* 楚塞三湘接，荆门九派通。
+        江流天地外，山色有无中。
+        郡邑浮前浦，波澜动远空。
+        襄阳好风日，留醉与山翁。 */}
+        <HetiHang>楚塞三湘接，荆门九派通。</HetiHang>
+        <HetiHang>江流天地外，山色有无中。</HetiHang>
+        <HetiHang>郡邑浮前浦，波澜动远空。</HetiHang>
+        <HetiHang>襄阳好风日，留醉与山翁。</HetiHang>
+    </HetiXLarge>
+</HetiAncient>
+
+> PS： 这篇小诗放在这里，是为了展示本Space自行包装的Heti组件。

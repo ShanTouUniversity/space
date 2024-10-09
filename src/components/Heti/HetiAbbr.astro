@@ -1,0 +1,16 @@
+---
+import HetiBase from "./HetiBase.astro";
+
+interface Props {
+    // optional title, default is ""
+    title?: string;
+}
+
+const { title } = Astro.props;
+---
+
+<HetiBase>
+    <abbr title={title}>
+        <slot />
+    </abbr>
+</HetiBase>
