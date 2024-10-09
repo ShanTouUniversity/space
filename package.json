@@ -14,9 +14,15 @@
     "@astrojs/mdx": "^3.1.7",
     "@astrojs/preact": "^3.5.3",
     "@astrojs/rss": "^4.0.7",
+    "@astrojs/tailwind": "^5.1.1",
     "astro": "^4.15.4",
     "preact": "^10.24.1",
+    "tailwindcss": "^3.4.13",
     "typescript": "^5.6.2"
+  },
+  "overrides": {
+    "react": "npm:@preact/compat@latest",
+    "react-dom": "npm:@preact/compat@latest"
   },
   "packageManager": "yarn@1.22.22"
 }

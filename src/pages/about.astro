@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PoemCard from "../components/React/PoemCard";
 
 const pageTitle = "关于";
 ---
@@ -8,4 +9,10 @@ const pageTitle = "关于";
         <p><em>ST.U Space</em> 是一个 Open Space，空间的所有资产均托管在 GitHub 上，所有的活动也通过 GitHub 进行。</p>
         <p> <em>ST.U Space</em> 是一个 Anonymous Space，所有的内容都应当是匿名的。</p>
         <p><em>ST.U Space</em> 是一个 Space， 本来无一物，故能容万物。</p>
+        <br/>
+        <PoemCard 
+                poemTitle="拨棹歌·其一" 
+                poet="德诚〔唐代〕"
+                poemContent="千尺丝纶直下垂，一波才动万波随。夜静水寒鱼不食，满船空载月明归。"
+        />
 </BaseLayout>
