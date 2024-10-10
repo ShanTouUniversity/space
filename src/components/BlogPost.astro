@@ -1,15 +1,11 @@
 ---
-import "../styles/blog_post.css";
-
 const { title, url, date: pubDate } = Astro.props;
 ---
-
-
-<li class="post-list-item">
-    <a href={url} class="post-list-item-link">
-        <h2 class="post-list-item-title">{title}</h2>
-        <p class="post-list-item-date">Posted on {new Date(pubDate).toLocaleDateString()}</p>
-    </a>
+<li class="mb-6 last:mb-0 p-4 rounded-lg bg-[var(--card-bg-color)] transition-all duration-300 ease-in-out hover:-translate-y-[5px] hover:shadow-lg">
+  <a href={url} class="flex flex-col items-start no-underline text-[var(--text-color)]">
+    <h2 class="font-bold text-xl mb-1">{title}</h2>
+    <p class="text-sm text-[var(--text-color-light)]">
+      Posted on {new Date(pubDate).toLocaleDateString()}
+    </p>
+  </a>
 </li>
-
-

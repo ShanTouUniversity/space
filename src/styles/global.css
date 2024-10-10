@@ -107,3 +107,11 @@ h1 {
     display: none;
   }
 }
+
+
+pre code {
+  display: block;
+  padding: 1rem;
+  /* background-color: var(--bg-200); */
+  border-radius: 5px;
+}
