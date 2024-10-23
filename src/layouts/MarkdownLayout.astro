@@ -7,6 +7,12 @@ const { frontmatter } = Astro.props;
 ---
 
 
+<head>
+  <meta name="description" content={frontmatter.description}>
+  <meta name="keywords" content={frontmatter.tags.join(',')}>
+  <meta name="author" content={frontmatter.author}>
+</head>
+
 <BaseLayout pageTitle={frontmatter.title}>
   <MetaCard frontmatter={frontmatter} />
   <slot />
