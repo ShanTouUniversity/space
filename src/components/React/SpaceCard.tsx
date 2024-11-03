@@ -1,6 +1,6 @@
 // STUSpaceCard.tsx
 import { h } from "preact";
-import { useRef } from "preact/hooks";
+import { useCallback, useRef } from "preact/hooks";
 import type { FunctionComponent } from "preact";
 
 // 下载图标组件
@@ -32,24 +32,41 @@ const GithubIcon: FunctionComponent = () => (
 const STUSpaceCard: FunctionComponent = () => {
   const cardRef = useRef<HTMLDivElement>(null);
 
-  const handleDownload = async () => {
+  const handleDownload = useCallback(async () => {
     if (!cardRef.current) return;
-
+  
     try {
+      // 动态加载 html2canvas
       const html2canvas = (await import("html2canvas")).default;
+  
+      // 滚动页面到顶部，避免偏移
+      const originalScrollY = window.scrollY;
+      window.scrollTo(0, 0);
+  
+      // 动态添加样式，确保显示效果
+      const style = document.createElement("style");
+      style.innerHTML = `img { display: inline-block; }`;
+      document.head.appendChild(style);
+  
+      // 生成 canvas
       const canvas = await html2canvas(cardRef.current, {
-        backgroundColor: null,
-        scale: 3, // 提高导出质量
+        backgroundColor: "#8b5d33",
+        scale: 2,
       });
-
+  
+      // 创建下载链接
       const link = document.createElement("a");
       link.download = "stu-space-card.png";
       link.href = canvas.toDataURL("image/png");
       link.click();
+  
+      // 恢复原始滚动位置和移除样式
+      window.scrollTo(0, originalScrollY);
+      document.head.removeChild(style);
     } catch (err) {
       console.error("Failed to download card:", err);
     }
-  };
+  }, []);
 
   return (
     <div
