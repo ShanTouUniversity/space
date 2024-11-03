@@ -115,3 +115,127 @@ pre code {
   /* background-color: var(--bg-200); */
   border-radius: 5px;
 }
+
+
+/* 基本排版 */
+body {
+  font-family: sans-serif; /* 设置默认字体 */
+  line-height: 1.6; /* 设置行高 */
+  max-width: 800px; /* 限制最大宽度 */
+  margin: 2rem auto; /* 设置左右边距为自动，上下边距为 2rem */
+  padding: 1rem; /* 设置内边距 */
+}
+
+/* 标题 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+h1 { font-size: 2em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.25em; }
+h4 { font-size: 1em; }
+h5 { font-size: 0.875em; }
+h6 { font-size: 0.75em; }
+
+
+/* 段落 */
+p {
+  margin-bottom: 1em;
+  /* text-indent: 2em; 首行缩进 */
+}
+
+
+/* 列表 */
+ul, ol {
+  margin-left: 2em;
+  margin-bottom: 1em;
+}
+li {
+  margin-bottom: 0.5em;
+}
+
+
+/* 引用 */
+blockquote {
+  border-left: 4px solid #ddd;
+  padding-left: 1em;
+  margin: 1em 0;
+  font-style: italic;
+}
+
+
+/* 代码 */
+code {
+  font-family: monospace;
+  background-color: #f5f5f5;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+pre {
+  background-color: #f5f5f5;
+  padding: 1em;
+  overflow: auto;
+  border-radius: 3px;
+}
+pre code {
+  padding: 0;
+  background-color: transparent;
+}
+
+
+/* 链接 */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+
+/* 图片 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1em auto;
+}
+
+
+/* 表格 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+}
+th, td {
+  padding: 0.5em;
+  border: 1px solid #ddd;
+}
+th {
+  text-align: left;
+}
+
+
+/* 水平线 */
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 2em 0;
+}
+
+
+/* 其他 */
+strong { font-weight: bold; }
+em { font-style: italic; }
+del { text-decoration: line-through; }
+
+
+/* 代码高亮 (需要配合高亮库使用) */
+.hljs {
+  background: #f8f8f8;
+  padding: 1em;
+  border-radius: 3px;
+}
