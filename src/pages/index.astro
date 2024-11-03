@@ -1,24 +1,59 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
+import STUSpaceCard from "../components/React/SpaceCard";
 const pageTitle = "ST.U Space";
 ---
-
 
 <meta name="description" content="ST.U Space是一块试验田， 是 ST.U 的子域。网站使用 Astro开发。作为一个 Space， 作为一个 Anonymous Space， 这里会包含任何内容。" />
 <meta name="author" content="ST.U" />
 <meta name="keywords" content="STU, ST.U"/>
-
 <BaseLayout pageTitle={pageTitle}>
-  <p>ST.U Space是一块试验田， 是 <a href="https://shantou.university">ST.U</a> 的子域。</p> 
-  <p>网站使用 <a href="https://docs.astro.build/">Astro</a>开发。</p>
-  <p> 作为一个 Space， 作为一个 Anonymous Space， 这里会包含任何内容。</p>
-  <p> 如果你想在 Space 上“涂鸦”，可以：
-    <ul>
-      <li>发送想要展示的内容到 <a href="mailto:dev@ShanTou.University">dev@ShanTou.University</a></li>
-      <!-- https://github.com/ShanTouUniversity/space -->
-      <li> 在 ST.U Space 的仓库下<a href="https://github.com/ShanTouUniversity/space/issues">提issue</a> </li>
-      <li> Fork 仓库修改后提交 PR. </li>
-    </ul>
-  </p>
+  <div class="flex flex-col lg:flex-row lg:gap-8">
+    <div class="lg:flex-1">
+      <p>ST.U Space是一块试验田， 是 <a href="https://shantou.university">ST.U</a> 的子域。</p>
+      <p>网站使用 <a href="https://docs.astro.build/">Astro</a>开发。</p>
+      <p>作为一个 Space， 作为一个 Anonymous Space， 这里会包含任何内容。</p>
+      <p>如果你想在 Space 上"涂鸦"，可以：
+        <ul>
+          <li>发送想要展示的内容到 <a href="mailto:dev@ShanTou.University">dev@ShanTou.University</a></li>
+          <li>在 ST.U Space 的仓库下<a href="https://github.com/ShanTouUniversity/space/issues">提issue</a></li>
+          <li>Fork 仓库修改后提交 PR.</li>
+        </ul>
+      </p>
+
+
+      <p>
+        <em><b>右侧/下方 的 Space 卡片可以下载为图片呢～</b></em> 
+      </p>  
+    </div>
+    <div class="mt-8 lg:mt-0 lg:w-96">
+      <div class="lg:sticky lg:top-4">
+          <!-- 响应式卡片，支持暗色主题 -->
+          <STUSpaceCard client:load />
+      </div>
+    </div>
+  </div>
 </BaseLayout>
+
+<style>
+  p {
+    margin-bottom: 1rem;
+  }
+  ul {
+    margin-top: 0.5rem;
+    margin-left: 1.5rem;
+    list-style-type: disc;
+  }
+  li {
+    margin-bottom: 0.5rem;
+  }
+  a {
+    color: #b45309;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+  a:hover {
+    color: #92400e;
+  }
+</style>
