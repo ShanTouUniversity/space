@@ -1,56 +1,169 @@
 :root {
-  --primary-100:#8B5D33;
-  --primary-200:#be8a5e;
-  --primary-300:#ffedbc;
-  --accent-100:#BFBFBF;
-  --accent-200:#616161;
-  --text-100:#333333;
-  --text-200:#5c5c5c;
-  --bg-100:#E5E5E5;
-  --bg-200:#dbdbdb;
-  --bg-300:#b3b3b3;
+  --primary-100: #8b5d33;
+  --primary-200: #be8a5e;
+  --primary-300: #ffedbc;
+  --accent-100: #bfbfbf;
+  --accent-200: #616161;
+  --text-100: #333333;
+  --text-200: #5c5c5c;
+  --bg-100: #e5e5e5;
+  --bg-200: #dbdbdb;
+  --bg-300: #b3b3b3;
 }
 
+html {
+  background-color: var(--bg-100);
+  font-family: sans-serif;
+  line-height: 1.6; /* Moved from body to html for better consistency */
+}
 
 html.dark {
   background-color: #080e6e;
   color: #fff;
 }
 
-.dark .nav-links a {
-  color: #fff;
-}
-
-
-html {
-  background-color: var(--bg-100);
-  font-family: sans-serif;
-}
-
 body {
   margin: 0 auto;
-  width: 100%;
-  max-width: 80ch;
+  max-width: 80ch; /* Use ch units for better readability */
   padding: 1rem;
-  line-height: 1.5;
+  width: min(
+    100%,
+    800px
+  ); /* Use min() for responsive max-width and full width on larger screens */
 }
 
 * {
   box-sizing: border-box;
 }
 
-h1 {
-  color: var(--primary-100);
-  margin: 1rem 0;
-  font-size: 2.5rem;
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
 }
 
+h1 {
+  font-size: 2em;
+  color: var(--primary-100);
+} /* Combined h1 styles */
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.25em;
+}
+h4 {
+  font-size: 1em;
+}
+h5 {
+  font-size: 0.875em;
+}
+h6 {
+  font-size: 0.75em;
+}
 
-/* 导航样式 */
+p {
+  margin-bottom: 1em;
+}
 
+ul,
+ol {
+  margin-left: 2em;
+  margin-bottom: 1em;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+blockquote {
+  border-left: 4px solid #ddd;
+  padding-left: 1em;
+  margin: 1em 0;
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+em {
+  font-style: italic;
+}
+del {
+  text-decoration: line-through;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Code */
+code {
+  font-family: monospace;
+  background-color: #f5f5f5;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+pre {
+  background-color: #f5f5f5;
+  padding: 1em;
+  overflow: auto;
+  border-radius: 3px;
+}
+
+pre code {
+  padding: 0;
+  background-color: transparent;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1em auto;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+}
+
+th,
+td {
+  padding: 0.5em;
+  border: 1px solid #ddd;
+}
+
+th {
+  text-align: left;
+}
+
+/* Horizontal Rule */
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 2em 0;
+}
+
+/* Navigation */
 .hamburger {
   padding-right: 20px;
   cursor: pointer;
+  display: block; /* Ensure it's visible by default */
 }
 
 .hamburger .line {
@@ -63,12 +176,14 @@ h1 {
 
 .nav-links {
   width: 100%;
-  top: 5rem;
-  left: 48px;
   background-color: var(--primary-100);
   display: none;
   margin: 0;
 }
+
+.dark .nav-links a {
+  color: #fff;
+} /* Dark mode nav link color */
 
 .nav-links a {
   display: block;
@@ -78,6 +193,7 @@ h1 {
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
+  color: inherit; /* Inherit color from parent (for dark mode) */
 }
 
 .nav-links a:hover,
@@ -86,154 +202,28 @@ h1 {
 }
 
 .expanded {
-  display: unset;
-}
+  display: block;
+} /* Use 'block' instead of 'unset' */
 
 @media screen and (min-width: 636px) {
+  .hamburger {
+    display: none;
+  }
+
   .nav-links {
-    margin-left: 5em;
     display: block;
-    position: static;
     width: auto;
     background: none;
+    margin-left: 5em;
   }
 
   .nav-links a {
     display: inline-block;
     padding: 15px 20px;
   }
-
-  .hamburger {
-    display: none;
-  }
 }
 
-
-pre code {
-  display: block;
-  padding: 1rem;
-  /* background-color: var(--bg-200); */
-  border-radius: 5px;
-}
-
-
-/* 基本排版 */
-body {
-  font-family: sans-serif; /* 设置默认字体 */
-  line-height: 1.6; /* 设置行高 */
-  max-width: 800px; /* 限制最大宽度 */
-  margin: 2rem auto; /* 设置左右边距为自动，上下边距为 2rem */
-  padding: 1rem; /* 设置内边距 */
-}
-
-/* 标题 */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
-  margin-top: 1.5em;
-  margin-bottom: 0.5em;
-}
-h1 { font-size: 2em; }
-h2 { font-size: 1.5em; }
-h3 { font-size: 1.25em; }
-h4 { font-size: 1em; }
-h5 { font-size: 0.875em; }
-h6 { font-size: 0.75em; }
-
-
-/* 段落 */
-p {
-  margin-bottom: 1em;
-  /* text-indent: 2em; 首行缩进 */
-}
-
-
-/* 列表 */
-ul, ol {
-  margin-left: 2em;
-  margin-bottom: 1em;
-}
-li {
-  margin-bottom: 0.5em;
-}
-
-
-/* 引用 */
-blockquote {
-  border-left: 4px solid #ddd;
-  padding-left: 1em;
-  margin: 1em 0;
-  font-style: italic;
-}
-
-
-/* 代码 */
-code {
-  font-family: monospace;
-  background-color: #f5f5f5;
-  padding: 0.2em 0.4em;
-  border-radius: 3px;
-}
-pre {
-  background-color: #f5f5f5;
-  padding: 1em;
-  overflow: auto;
-  border-radius: 3px;
-}
-pre code {
-  padding: 0;
-  background-color: transparent;
-}
-
-
-/* 链接 */
-a {
-  color: #007bff;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-
-
-/* 图片 */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 1em auto;
-}
-
-
-/* 表格 */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 1em;
-}
-th, td {
-  padding: 0.5em;
-  border: 1px solid #ddd;
-}
-th {
-  text-align: left;
-}
-
-
-/* 水平线 */
-hr {
-  border: none;
-  border-top: 1px solid #ddd;
-  margin: 2em 0;
-}
-
-
-/* 其他 */
-strong { font-weight: bold; }
-em { font-style: italic; }
-del { text-decoration: line-through; }
-
-
-/* 代码高亮 (需要配合高亮库使用) */
+/* Code Highlighting */
 .hljs {
   background: #f8f8f8;
   padding: 1em;
