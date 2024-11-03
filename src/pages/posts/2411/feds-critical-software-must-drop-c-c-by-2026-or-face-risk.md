@@ -1,5 +1,5 @@
 ---
-layout: "../../../layouts/MarkdownWithHeti.astro"
+layout: "../../../layouts/MarkdownLayout.astro"
 
 title: 美国联邦政府警告：关键软件中的危险开发实践
 pubDate: 2024-11-03
