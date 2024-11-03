@@ -6,7 +6,7 @@ pubDate: 2024-11-03
 upDate: 2024-11-03  # 如果有更新，修改日期
 author: Tzu Gwo
 description: 本文探讨了 io_uring 在异步 Rust 环境下存在的取消安全性问题，特别是 TCP 连接泄漏的风险，并分析了其与 epoll 的区别，以及 I/O 安全性和停止安全性的解决方案和挑战。
-tags: [Rust, 异步, io_uring, epoll, 异步运行时,  取消安全性, TCP, 连接泄漏,  内存安全,  I/O 安全,  线性类型, monoio, tokio, glommio, compio]
+tags: [Rust, 异步, io_uring, epoll, 异步运行时,  取消安全性, TCP, 连接泄漏,  内存安全,  IO 安全,  线性类型, monoio, tokio, glommio, compio]
 ---
 
 <!-- ## io_uring 在异步 Rust 中的取消安全性问题 -->
