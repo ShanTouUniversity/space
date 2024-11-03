@@ -10,11 +10,10 @@ const { frontmatter } = Astro.props;
     Tags:
     {
       frontmatter.tags.map((tag: string) => (
-        <span class="inline-block bg-green-30 rounded-full px-2 py-1 text-xs font-medium text-green-700 border border-green-500 mr-2">
+        <span class="inline-block bg-green-30 rounded-full px-2 py-1 text-xs font-medium text-green-700 border border-green-500 mr-4 mb-2"> <!-- 同时增加水平和垂直外边距 -->
           <a href={`/tags/${tag}`}> {tag} </a>
         </span>
       ))
     }
   </p>
 </div>
-
