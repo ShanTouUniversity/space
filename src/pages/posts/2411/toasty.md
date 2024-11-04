@@ -94,12 +94,12 @@ Rust 长期以来被定位为系统级编程语言，在服务器端，Rust 在�
 
 ```rust
 pub fn find_by_email<'a>(
-	email: impl stmt::IntoExpr<'a, String>
+ email: impl stmt::IntoExpr<'a, String>
 ) -> FindByEmail<'a> {
 
-	let expr = User::EMAIL.eq(email);
-	let query = Query::from_expr(expr);
-	FindByEmail { query }
+ let expr = User::EMAIL.eq(email);
+ let query = Query::from_expr(expr);
+ FindByEmail { query }
 }
 ```
 
@@ -112,7 +112,6 @@ pub fn find_by_email<'a>(
 但 Toasty 的情况不同。Toasty 会生成许多用户会直接使用的公共方法和类型。在 “Hello Toasty” 示例中，Toasty 生成了 `User::find_by_email` 方法。Toasty 采用显式的代码生成步骤，将代码生成到用户可以查看和阅读的文件中，而不是使用过程宏。Toasty 会尽量使生成的代码易于阅读，方便用户发现生成的方法。这种可发现性将提升库的易用性。
 
 Toasty 仍处于早期开发阶段，API 会根据用户反馈不断演进。如果您遇到任何问题，请积极反馈，我们会尽力解决。
-
 
 ## SQL 与 NoSQL 的兼容性
 
