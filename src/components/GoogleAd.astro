@@ -1,0 +1,44 @@
+---
+// components/GoogleAd.astro
+interface Props {
+  adSlot?: string;
+}
+
+const { adSlot } = Astro.props as Props;
+---
+
+<!-- 广告容器 -->
+<div class="google-ad-wrapper">
+  <ins
+    class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-8794078230518228"
+    data-ad-slot={adSlot || "9437641394"}
+    data-ad-format="auto"
+    data-full-width-responsive="true"
+  ></ins>
+</div>
+
+<!-- 异步加载广告脚本 -->
+<script 
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8794078230518228"
+  crossorigin="anonymous"
+></script>
+
+<!-- 客户端初始化 -->
+<script is:inline>
+  // 确保广告只在前端渲染
+  if (import.meta.env.MODE === 'client') {
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  }
+</script>
+
+<style>
+  /* 防止布局偏移 */
+  .google-ad-wrapper {
+    min-height: 100px;
+    margin: 1rem 0;
+    background: rgba(0,0,0,0.05);
+  }
+</style>
