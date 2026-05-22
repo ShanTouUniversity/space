@@ -166,22 +166,24 @@ hr {
 .hamburger {
   padding: 0;
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: block;
   background: none;
   border: none;
   font: inherit;
   color: inherit;
   line-height: normal;
-  width: 40px;
 }
 
 .hamburger .line {
   display: block;
-  width: 40px;
+  width: auto;
   height: 3px;
+  margin-bottom: 10px;
   background-color: var(--primary-100);
+}
+
+.hamburger .line:last-child {
+  margin-bottom: 0;
 }
 
 .nav-links {
