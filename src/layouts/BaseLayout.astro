@@ -4,7 +4,30 @@ import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import ThemeIcon from '../components/ThemeIcon.astro';
 
-const {pageTitle} = Astro.props;
+interface Props {
+  pageTitle: string;
+  description?: string;
+  ogImage?: string;
+  canonicalURL?: string;
+  type?: 'website' | 'article';
+  jsonLd?: Record<string, any>;
+}
+
+const {
+  pageTitle,
+  description,
+  ogImage = '/favicon.svg',
+  canonicalURL,
+  type = 'website',
+  jsonLd,
+} = Astro.props;
+
+const siteURL = "https://space.shantou.university";
+const defaultDescription = "ST.U Space 是一块试验田，是 ST.U 的子域。作为一个 Anonymous Space，这里会包含任何内容。";
+const finalDescription = description || defaultDescription;
+const finalCanonical = canonicalURL || Astro.url.pathname;
+const fullCanonical = new URL(finalCanonical, siteURL).href;
+const fullOgImage = ogImage.startsWith('http') ? ogImage : new URL(ogImage, siteURL).href;
 ---
 
 
@@ -17,6 +40,28 @@ const {pageTitle} = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+
+    <meta name="description" content={finalDescription} />
+    <meta name="author" content="ST.U" />
+    <meta name="keywords" content="STU, ST.U, 汕头大学, 试验田" />
+
+    <link rel="canonical" href={fullCanonical} />
+
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={finalDescription} />
+    <meta property="og:image" content={fullOgImage} />
+    <meta property="og:url" content={fullCanonical} />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="ST.U Space" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={finalDescription} />
+    <meta name="twitter:image" content={fullOgImage} />
+
+    {jsonLd && (
+      <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    )}
   </head>
   <body>
     <Header />

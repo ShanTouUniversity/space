@@ -8,9 +8,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <head>
-  <meta name="description" content={frontmatter.description}>
   <meta name="keywords" content={frontmatter.tags.join(',')}>
-  <meta name="author" content={frontmatter.author}>
   <link rel="stylesheet" href="//unpkg.com/heti/umd/heti.min.css">
   <script is:inline src="//unpkg.com/heti/umd/heti-addon.min.js"></script>
   <script is:inline>
@@ -19,7 +17,12 @@ const { frontmatter } = Astro.props;
   </script>
 </head>
 
-<BaseLayout pageTitle={frontmatter.title}>
+<BaseLayout
+  pageTitle={frontmatter.title}
+  description={frontmatter.description}
+  type="article"
+  canonicalURL={Astro.url.pathname}
+>
   <MetaCard frontmatter={frontmatter} />
   <slot />
   <GoogleAd />
