@@ -1,0 +1,13 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import GraffitiWall from "../components/React/GraffitiWall";
+
+const pageTitle = "涂鸦墙";
+---
+
+<BaseLayout {pageTitle} description="在 ST.U Space 的涂鸦墙上留下你的痕迹。">
+  <p class="text-center text-[var(--text-200)] mb-8">
+    这是一面 Anonymous 涂鸦墙。你在 GitHub issue 上的留言会自动展示在这里。
+  </p>
+  <GraffitiWall client:load />
+</BaseLayout>

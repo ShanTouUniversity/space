@@ -1,10 +1,14 @@
 ---
+const { currentPath = "/" } = Astro.props;
+
+const isCurrent = (href: string) =>
+  href === "/" ? currentPath === href : currentPath.startsWith(href);
 ---
 
-
 <div class="nav-links">
-    <a href="/">首页</a>
-    <a href="/blog">博客</a>
-    <a href="/tags">标签</a>
-    <a href="/about">关于</a>
+  <a href="/" aria-current={isCurrent("/") ? "page" : null}>首页</a>
+  <a href="/blog" aria-current={isCurrent("/blog") ? "page" : null}>博客</a>
+  <a href="/tags" aria-current={isCurrent("/tags") ? "page" : null}>标签</a>
+  <a href="/about" aria-current={isCurrent("/about") ? "page" : null}>关于</a>
+  <a href="/graffiti" aria-current={isCurrent("/graffiti") ? "page" : null}>涂鸦</a>
 </div>

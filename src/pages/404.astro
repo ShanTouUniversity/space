@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "404 - 页面未找到";
+---
+
+<BaseLayout {pageTitle}>
+  <div class="flex flex-col items-center justify-center py-16">
+    <h1 class="text-6xl font-bold text-[var(--primary-100)] mb-4">404</h1>
+    <p class="text-xl mb-8">这里空空如也，什么也没有。</p>
+    <a href="/" class="px-6 py-3 bg-[var(--primary-100)] text-white rounded-lg hover:opacity-90 transition-opacity no-underline">
+      返回首页
+    </a>
+  </div>
+</BaseLayout>

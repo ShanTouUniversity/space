@@ -1,12 +1,13 @@
 ---
-const { title, url, description, date: pubDate } = Astro.props;
+const { title, url, description, date: pubDate, readingTime } = Astro.props;
+const displayReadingTime = readingTime || Math.max(1, Math.ceil((description || "").length / 200));
 ---
 <li class="mb-6 last:mb-0 p-4 rounded-lg bg-[var(--card-bg-color)] transition-all duration-300 ease-in-out hover:-translate-y-[5px] hover:shadow-lg">
   <a href={url} class="flex flex-col items-start no-underline text-[var(--text-color)]">
     <h2 class="font-bold text-xl mb-1">{title}</h2>
     <p>{description}</p>
     <p class="text-sm text-[var(--text-color-light)]">
-      Posted on {new Date(pubDate).toLocaleDateString()}
+      {new Date(pubDate).toLocaleDateString()} · 阅读约 {displayReadingTime} 分钟
     </p>
   </a>
 </li>

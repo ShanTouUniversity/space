@@ -7,6 +7,6 @@ import Hamburger from "./Hamburger.astro";
 <header>
     <nav>
         <Hamburger/>
-        <Navigation/>
+        <Navigation currentPath={Astro.url.pathname} />
     </nav>
 </header>
