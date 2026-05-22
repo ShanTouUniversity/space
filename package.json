@@ -26,5 +26,5 @@
     "react": "npm:@preact/compat@latest",
     "react-dom": "npm:@preact/compat@latest"
   },
-  "packageManager": "yarn@1.22.22"
+  "packageManager": "npm@11.14.1"
 }

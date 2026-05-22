@@ -25,6 +25,25 @@ function formatDate(dateStr) {
   return `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`;
 }
 
+function parseBody(body) {
+  const imgs = [];
+  const textParts = [];
+  const regex = /<img\s+[^>]*src="([^"]+)"[^>]*\/?>/gi;
+  let lastIdx = 0;
+  let match;
+  while ((match = regex.exec(body)) !== null) {
+    if (match.index > lastIdx) {
+      textParts.push(body.slice(lastIdx, match.index).replace(/<[^>]+>/g, "").trim());
+    }
+    imgs.push(match[1]);
+    lastIdx = match.index + match[0].length;
+  }
+  if (lastIdx < body.length) {
+    textParts.push(body.slice(lastIdx).replace(/<[^>]+>/g, "").trim());
+  }
+  return { text: textParts.filter(Boolean).join(" "), images: imgs };
+}
+
 const GraffitiWall = () => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -86,6 +105,7 @@ const GraffitiWall = () => {
             {messages.map((msg, i) => {
               const color = COLORS[i % COLORS.length];
               const rotation = ((i * 7 + 3) % 7) - 3;
+              const { text, images } = parseBody(msg.body || "");
               return (
                 <div
                   class="graffiti-note"
@@ -96,7 +116,14 @@ const GraffitiWall = () => {
                     transform: `rotate(${rotation}deg)`,
                   }}
                 >
-                  <p class="graffiti-note-body">{msg.body}</p>
+                  {images.length > 0 && (
+                    <div class="graffiti-note-images">
+                      {images.map((src, j) => (
+                        <img key={j} src={src} alt="涂鸦图片" class="graffiti-note-img" loading="lazy" />
+                      ))}
+                    </div>
+                  )}
+                  {text && <p class="graffiti-note-body">{text}</p>}
                   <div class="graffiti-note-footer" style={{ borderTopColor: dark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)" }}>
                     <span class="graffiti-note-author">{msg.user?.login || "匿名"}</span>
                     <span class="graffiti-note-date">{formatDate(msg.created_at)}</span>
@@ -159,12 +186,24 @@ const GraffitiWall = () => {
           border-radius: 4px;
           box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
           transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .dark .graffiti-note {
-          box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 3px 3px 12px rgba(0,0,0,0.4);
           display: flex;
           flex-direction: column;
           position: relative;
+        }
+        .dark .graffiti-note {
+          box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 3px 3px 12px rgba(0,0,0,0.4);
+        }
+        .graffiti-note-images {
+          margin: -0.5rem -0.5rem 0.5rem;
+          overflow: hidden;
+          border-radius: 4px 4px 0 0;
+        }
+        .graffiti-note-img {
+          width: 100%;
+          height: auto;
+          display: block;
+          max-height: 180px;
+          object-fit: cover;
         }
         .graffiti-note::before {
           content: "";
