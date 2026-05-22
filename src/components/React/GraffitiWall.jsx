@@ -18,7 +18,7 @@ const DEMO_MESSAGES = [
   { body: "留下你的涂鸦吧～", user: { login: "ST.U" }, created_at: "2024-10-03T00:00:00Z" },
 ];
 
-const ISSUE_NUMBER = 1;
+const ISSUE_NUMBER = 2;
 const REPO = "ShanTouUniversity/space";
 
 function getRotation() {
