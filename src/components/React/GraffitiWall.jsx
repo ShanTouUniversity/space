@@ -2,14 +2,14 @@ import { h } from "preact";
 import { useState, useEffect } from "preact/hooks";
 
 const COLORS = [
-  { bg: "#fef3c7", border: "#fbbf24" },
-  { bg: "#dbeafe", border: "#60a5fa" },
-  { bg: "#d1fae5", border: "#34d399" },
-  { bg: "#fce7f3", border: "#f472b6" },
-  { bg: "#ede9fe", border: "#a78bfa" },
-  { bg: "#ffedd5", border: "#fb923c" },
-  { bg: "#ccfbf1", border: "#2dd4bf" },
-  { bg: "#ffe4e6", border: "#fb7185" },
+  { bg: "#fef3c7", border: "#fbbf24", darkBg: "#3d3410", darkBorder: "#a3861a" },
+  { bg: "#dbeafe", border: "#60a5fa", darkBg: "#0f2847", darkBorder: "#2563eb" },
+  { bg: "#d1fae5", border: "#34d399", darkBg: "#0d3323", darkBorder: "#059669" },
+  { bg: "#fce7f3", border: "#f472b6", darkBg: "#3b0f27", darkBorder: "#db2777" },
+  { bg: "#ede9fe", border: "#a78bfa", darkBg: "#1f143d", darkBorder: "#7c3aed" },
+  { bg: "#ffedd5", border: "#fb923c", darkBg: "#3a1f0e", darkBorder: "#ea580c" },
+  { bg: "#ccfbf1", border: "#2dd4bf", darkBg: "#0c332e", darkBorder: "#0d9488" },
+  { bg: "#ffe4e6", border: "#fb7185", darkBg: "#380e16", darkBorder: "#e11d48" },
 ];
 
 const DEMO_MESSAGES = [
@@ -34,6 +34,15 @@ const GraffitiWall = () => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    const checkDark = () => setDark(document.documentElement.classList.contains("dark"));
+    checkDark();
+    const observer = new MutationObserver(checkDark);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const url = `https://api.github.com/repos/${REPO}/issues/${ISSUE_NUMBER}/comments`;
@@ -82,18 +91,19 @@ const GraffitiWall = () => {
           <div class="graffiti-grid">
             {messages.map((msg, i) => {
               const color = COLORS[i % COLORS.length];
-              const rotation = getRotation();
+              const rotation = ((i * 7 + 3) % 7) - 3;
               return (
                 <div
                   class="graffiti-note"
                   style={{
-                    backgroundColor: color.bg,
-                    borderColor: color.border,
+                    backgroundColor: dark ? color.darkBg : color.bg,
+                    borderColor: dark ? color.darkBorder : color.border,
+                    color: dark ? "#e5e7eb" : "inherit",
                     transform: `rotate(${rotation}deg)`,
                   }}
                 >
                   <p class="graffiti-note-body">{msg.body}</p>
-                  <div class="graffiti-note-footer">
+                  <div class="graffiti-note-footer" style={{ borderTopColor: dark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)" }}>
                     <span class="graffiti-note-author">{msg.user?.login || "匿名"}</span>
                     <span class="graffiti-note-date">{formatDate(msg.created_at)}</span>
                   </div>
@@ -157,6 +167,9 @@ const GraffitiWall = () => {
           border-radius: 4px;
           box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
           transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .dark .graffiti-note {
+          box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 3px 3px 12px rgba(0,0,0,0.4);
           display: flex;
           flex-direction: column;
           position: relative;
@@ -171,11 +184,18 @@ const GraffitiWall = () => {
           height: 12px;
           background: rgba(255,255,255,0.4);
           border-radius: 2px;
+          opacity: 0.6;
+        }
+        .dark .graffiti-note::before {
+          background: rgba(255,255,255,0.15);
         }
         .graffiti-note:hover {
           transform: scale(1.05) !important;
           box-shadow: 5px 5px 16px rgba(0,0,0,0.15);
           z-index: 10;
+        }
+        .dark .graffiti-note:hover {
+          box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 5px 5px 20px rgba(0,0,0,0.5);
         }
         .graffiti-note-body {
           font-size: 0.9rem;
@@ -219,6 +239,10 @@ const GraffitiWall = () => {
         .graffiti-btn:hover {
           opacity: 0.85;
           text-decoration: none;
+        }
+        .dark .graffiti-btn {
+          background-color: var(--primary-200);
+          color: #000;
         }
         .graffiti-error {
           text-align: center;
