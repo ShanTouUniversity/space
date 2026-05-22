@@ -164,16 +164,23 @@ hr {
 
 /* Navigation */
 .hamburger {
-  padding-right: 20px;
+  padding: 0;
   cursor: pointer;
-  display: block; /* Ensure it's visible by default */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  line-height: normal;
+  width: 40px;
 }
 
 .hamburger .line {
   display: block;
-  width: auto;
+  width: 40px;
   height: 3px;
-  margin-bottom: 10px;
   background-color: var(--primary-100);
 }
 
