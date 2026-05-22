@@ -60,7 +60,7 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : new URL(ogImage, site
     <meta name="twitter:image" content={fullOgImage} />
 
     {jsonLd && (
-      <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     )}
 
     <link rel="alternate" type="application/rss+xml" title="ST.U Space" href="/rss.xml" />

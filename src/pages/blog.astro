@@ -5,10 +5,10 @@ import BlogPost from "../components/BlogPost.astro";
 
 const top_n = 15;
 
-const allPosts = (
-  await Astro.glob("../pages/posts/**/*.{md,markdown,mdown,mkd,mdwn,mdx}")
-)
-  .sort((a, b) => {
+const allPosts = (Object.values(
+  import.meta.glob("../pages/posts/**/*.{md,markdown,mdown,mkd,mdwn,mdx}", { eager: true })
+) as any[])
+  .sort((a: any, b: any) => {
     let aData = new Date(a.frontmatter.pubDate).getTime();
     let bData = new Date(b.frontmatter.pubDate).getTime();
     return bData - aData;

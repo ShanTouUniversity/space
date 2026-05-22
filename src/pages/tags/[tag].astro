@@ -1,11 +1,10 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogPost from "../../components/BlogPost.astro";
-import type { MarkdownInstance } from "astro";
 
 export async function getStaticPaths() {
-  const allPosts: MarkdownInstance<Record<string, any>>[] = await Astro.glob(
-    "../posts/**/*.{md,markdown,mdown,mkd,mdwn,mdx}"
+  const allPosts: any[] = Object.values(
+    import.meta.glob("../posts/**/*.{md,markdown,mdown,mkd,mdwn,mdx}", { eager: true })
   );
 
   const uniqueTags = [

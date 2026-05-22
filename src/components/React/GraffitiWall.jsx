@@ -1,4 +1,3 @@
-import { h } from "preact";
 import { useState, useEffect } from "preact/hooks";
 
 const COLORS = [
@@ -21,10 +20,6 @@ const DEMO_MESSAGES = [
 const ISSUE_NUMBER = 2;
 const REPO = "ShanTouUniversity/space";
 
-function getRotation() {
-  return (Math.random() - 0.5) * 6;
-}
-
 function formatDate(dateStr) {
   const d = new Date(dateStr);
   return `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`;
@@ -33,7 +28,6 @@ function formatDate(dateStr) {
 const GraffitiWall = () => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [dark, setDark] = useState(false);
 
   useEffect(() => {
@@ -128,8 +122,6 @@ const GraffitiWall = () => {
           </div>
         </>
       )}
-
-      {error && <p class="graffiti-error">{error}</p>}
 
       <style>{`
         .graffiti-wall {

@@ -1,5 +1,3 @@
-import React from 'react';
-
 const PoemCard = ({
   poemTitle = "诗题",
   poemContent = "这是一首诗的内容请替换这里的文字",

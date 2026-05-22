@@ -1,5 +1,3 @@
-// STUSpaceCard.tsx
-import { h } from "preact";
 import { useCallback, useRef } from "preact/hooks";
 import type { FunctionComponent } from "preact";
 
