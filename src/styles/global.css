@@ -214,6 +214,23 @@ hr {
   background-color: var(--primary-200);
 }
 
+.nav-links .nav-sep {
+  display: none;
+}
+
+.nav-links a.external-link {
+  opacity: 0.8;
+}
+
+@media screen and (min-width: 636px) {
+  .nav-links .nav-sep {
+    display: inline-block;
+    color: var(--primary-300);
+    padding: 15px 4px;
+    font-size: 1rem;
+  }
+}
+
 .expanded {
   display: block;
 } /* Use 'block' instead of 'unset' */
